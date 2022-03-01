@@ -1,0 +1,16 @@
+---
+# Source: eck-operator/templates/webhook.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: elastic-operator-webhook
+  namespace: {{ .Release.namespace }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+spec:
+  ports:
+    - name: https
+      port: 443
+      targetPort: 9443
+  selector:
+    {{- include "chart.selectorLabels" . | nindent 4 }}
