@@ -1,0 +1,17 @@
+---
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: quickstart-kibana
+spec:
+  version: 8.0.0
+  count: 1
+  config: {}
+  elasticsearchRef:
+    name: quickstart-elasticsearch
+  podTemplate:
+    spec: {}
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true

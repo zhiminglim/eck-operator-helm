@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kibana-ingress
+  annotations: {}
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: chart-example.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: quickstart-kibana-kb-http
+            port: 
+              number: 5601
